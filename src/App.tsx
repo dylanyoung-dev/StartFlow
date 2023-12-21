@@ -1,0 +1,113 @@
+import {
+  Box,
+  Button,
+  Container,
+  FormControl,
+  FormLabel,
+  HStack,
+  Heading,
+  IconButton,
+  Stack,
+  Text,
+  Textarea,
+} from "@chakra-ui/react";
+import { useState } from "react";
+import { BsInfoCircle } from "react-icons/bs";
+import { GrDeploy } from "react-icons/gr";
+import { PiChats } from "react-icons/pi";
+import { SiNextdotjs } from "react-icons/si";
+import { CustomSelect } from "./components/forms/CustomSelect";
+import { Option } from "./components/forms/Option";
+
+function App() {
+  const [colorMode, setColorMode] = useState<string | null | undefined>();
+  return (
+    <>
+      <Box as="section" minH="md" w="5xl" m="auto">
+        <Box borderBottomWidth="1px" bg="bg.surface" w="5xl">
+          <Container py="4" maxW="none" w="full">
+            <HStack justify="space-between" w="full">
+              <Stack direction="column" spacing={2}>
+                <PiChats fontSize="36px" />
+                <Text fontSize="md" fontWeight="bold">
+                  AI Generator
+                </Text>
+              </Stack>
+              <Stack direction="row" spacing={2}>
+                <IconButton aria-label="Learn More" icon={<BsInfoCircle />} />
+                <Button
+                  leftIcon={<GrDeploy />}
+                  colorScheme="blue"
+                  disabled={true}
+                >
+                  Deploy
+                </Button>
+              </Stack>
+            </HStack>
+          </Container>
+        </Box>
+        <Box w="full">
+          <Container py="4" maxW="none" w="full">
+            <Stack direction="column" spacing="4">
+              <Heading as="h1" size="md">
+                Configure your website
+              </Heading>
+              <Stack direction="row" spacing={2}>
+                TODO: Add Source Control configuration for easier deployments
+                <FormControl id="framework">
+                  <FormLabel>Framework</FormLabel>
+                  <CustomSelect
+                    name="Framework"
+                    colorScheme="blue"
+                    value={colorMode}
+                    onChange={setColorMode}
+                    placeholder="Select a Framework"
+                  >
+                    <Option value="light">
+                      <HStack>
+                        <SiNextdotjs boxSize="24px" />
+                        <Text>Next.js</Text>
+                      </HStack>
+                    </Option>
+                  </CustomSelect>
+                </FormControl>
+                <FormControl id="design">
+                  <FormLabel>Design System</FormLabel>
+                  <CustomSelect
+                    name="ColorMode"
+                    colorScheme="blue"
+                    value={colorMode}
+                    onChange={setColorMode}
+                    placeholder="Select a Design System"
+                  >
+                    <Option value="light">
+                      <HStack>
+                        <SiNextdotjs boxSize="24px" />
+                        <Text>Chakra UI</Text>
+                      </HStack>
+                    </Option>
+                  </CustomSelect>
+                </FormControl>
+                {/* <CustomSelect placeholder="Select Framework">
+                  <Option value="nextjs">
+                    <HStack>
+                      <SiNextdotjs boxSize="24px" />
+                      <Text>Next.js</Text>
+                    </HStack>
+                  </Option>
+                </CustomSelect> */}
+              </Stack>
+              <Heading as="h2" size="md">
+                Describe your website
+              </Heading>
+              <Textarea placeholder="Describe your website that you'd like to build?  Be as detailed as possible." />
+              <Button colorScheme="blue">Generate</Button>
+            </Stack>
+          </Container>
+        </Box>
+      </Box>
+    </>
+  );
+}
+
+export default App;
