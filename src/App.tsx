@@ -27,7 +27,7 @@ function App() {
         <Box borderBottomWidth="1px" bg="bg.surface" w="5xl">
           <Container py="4" maxW="none" w="full">
             <HStack justify="space-between" w="full">
-              <Stack direction="column" spacing={2}>
+              <Stack direction="column" spacing={2} w="full">
                 <PiChats fontSize="36px" />
                 <Text fontSize="md" fontWeight="bold">
                   AI Generator
