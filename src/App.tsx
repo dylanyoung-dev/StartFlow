@@ -15,7 +15,7 @@ import { useState } from "react";
 import { BsInfoCircle } from "react-icons/bs";
 import { GrDeploy } from "react-icons/gr";
 import { PiChats } from "react-icons/pi";
-import { SiNextdotjs } from "react-icons/si";
+import { SiChakraui, SiNextdotjs } from "react-icons/si";
 import { CustomSelect } from "./components/forms/CustomSelect";
 import { Option } from "./components/forms/Option";
 
@@ -49,7 +49,7 @@ function App() {
         <Box w="full">
           <Container py="4" maxW="none" w="full">
             <Stack direction="column" spacing="4">
-              <Heading as="h1" size="md">
+              <Heading as="h1" size="sm">
                 Configure your website
               </Heading>
               <Stack direction="row" spacing={2}>
@@ -82,7 +82,7 @@ function App() {
                   >
                     <Option value="light">
                       <HStack>
-                        <SiNextdotjs boxSize="24px" />
+                        <SiChakraui boxSize="24px" />
                         <Text>Chakra UI</Text>
                       </HStack>
                     </Option>
@@ -97,10 +97,13 @@ function App() {
                   </Option>
                 </CustomSelect> */}
               </Stack>
-              <Heading as="h2" size="md">
+              <Heading as="h2" size="sm">
                 Describe your website
               </Heading>
-              <Textarea placeholder="Describe your website that you'd like to build?  Be as detailed as possible." />
+              <Textarea
+                rows={8}
+                placeholder="Describe your website that you'd like to build?  Be as detailed as possible."
+              />
               <Button colorScheme="blue">Generate</Button>
             </Stack>
           </Container>
