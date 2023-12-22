@@ -27,13 +27,14 @@ function App() {
         <Box borderBottomWidth="1px" bg="bg.surface" w="5xl">
           <Container py="4" maxW="none" w="full">
             <HStack justify="space-between" w="full">
-              <Stack direction="column" spacing={2} w="full">
+              <HStack direction="column" spacing={2} w="300px">
                 <PiChats fontSize="36px" />
                 <Text fontSize="md" fontWeight="bold">
                   AI Generator
                 </Text>
-              </Stack>
-              <Stack direction="row" spacing={2}>
+              </HStack>
+              <Stack direction="row" spacing={2} align="center">
+                <Text fontSize="md">Beta v0.0.1</Text>
                 <IconButton aria-label="Learn More" icon={<BsInfoCircle />} />
                 <Button
                   leftIcon={<GrDeploy />}
@@ -49,8 +50,8 @@ function App() {
         <Box w="full">
           <Container py="4" maxW="none" w="full">
             <Stack direction="column" spacing="4">
-              <Heading as="h1" size="sm">
-                Configure your website
+              <Heading as="h1" size="xs">
+                Configure Your Website
               </Heading>
               <Stack direction="row" spacing={2}>
                 TODO: Add Source Control configuration for easier deployments
@@ -88,17 +89,9 @@ function App() {
                     </Option>
                   </CustomSelect>
                 </FormControl>
-                {/* <CustomSelect placeholder="Select Framework">
-                  <Option value="nextjs">
-                    <HStack>
-                      <SiNextdotjs boxSize="24px" />
-                      <Text>Next.js</Text>
-                    </HStack>
-                  </Option>
-                </CustomSelect> */}
               </Stack>
-              <Heading as="h2" size="sm">
-                Describe your website
+              <Heading as="h2" size="xs">
+                Describe Your Website
               </Heading>
               <Textarea
                 rows={8}
