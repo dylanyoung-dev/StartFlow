@@ -1,8 +1,6 @@
 import { theme } from "@chakra-ui/pro-theme";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import type { AppProps } from "next/app";
 
 const proTheme = extendTheme(theme);
 const extension = {
@@ -11,10 +9,10 @@ const extension = {
 
 const aiGeneratorTheme = extendTheme(extension);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+export default function App({ Component, pageProps }: AppProps) {
+  return (
     <ChakraProvider theme={aiGeneratorTheme}>
-      <App />
+      <Component {...pageProps} />
     </ChakraProvider>
-  </React.StrictMode>
-);
+  );
+}

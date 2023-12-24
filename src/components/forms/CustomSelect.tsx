@@ -10,7 +10,7 @@ import {
   usePopper,
 } from "@chakra-ui/react";
 import { mergeWith } from "@chakra-ui/utils";
-import { useSelect } from "downshift";
+import { useSelect } from "downshift"; // using version 6.1.3
 import {
   Children,
   cloneElement,
@@ -62,7 +62,7 @@ export const CustomSelect = forwardRef<HTMLButtonElement, SelectProps>(
       id,
       items,
       selectedItem: value,
-      onSelectedItemChange: (val: any) => onChange?.(val.selectedItem), // eslint-disable-line
+      onSelectedItemChange: (val) => onChange?.(val.selectedItem),
     });
 
     const { referenceRef: popperRef, getPopperProps } = usePopper({

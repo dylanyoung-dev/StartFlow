@@ -1,3 +1,5 @@
+import { CustomSelect } from "@/components/forms/CustomSelect";
+import { Option } from "@/components/forms/Option";
 import {
   Box,
   Button,
@@ -11,15 +13,16 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
+import { NextPage } from "next";
 import { useState } from "react";
 import { BsInfoCircle } from "react-icons/bs";
 import { GrDeploy } from "react-icons/gr";
 import { PiChats } from "react-icons/pi";
 import { SiChakraui, SiNextdotjs } from "react-icons/si";
-import { CustomSelect } from "./components/forms/CustomSelect";
-import { Option } from "./components/forms/Option";
 
-function App() {
+interface IndexPageProps {}
+
+const IndexPage: NextPage<IndexPageProps> = (props) => {
   const [colorMode, setColorMode] = useState<string | null | undefined>();
   return (
     <>
@@ -104,6 +107,6 @@ function App() {
       </Box>
     </>
   );
-}
+};
 
-export default App;
+export default IndexPage;
