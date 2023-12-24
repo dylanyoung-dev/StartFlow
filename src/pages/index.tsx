@@ -22,6 +22,7 @@ import { SiChakraui, SiNextdotjs } from "react-icons/si";
 
 interface IndexPageProps {}
 
+//eslint-disable-next-line
 const IndexPage: NextPage<IndexPageProps> = (props) => {
   const [colorMode, setColorMode] = useState<string | null | undefined>();
   return (
