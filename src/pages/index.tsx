@@ -1,3 +1,4 @@
+import { useAuth } from "@/components/auth/AuthInfo";
 import { CustomSelect } from "@/components/forms/CustomSelect";
 import { Option } from "@/components/forms/Option";
 import {
@@ -13,18 +14,31 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
+import { signOut } from "@firebase/auth";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { BsInfoCircle } from "react-icons/bs";
 import { GrDeploy } from "react-icons/gr";
-import { PiChats } from "react-icons/pi";
 import { SiChakraui, SiNextdotjs } from "react-icons/si";
+import { TiFlowChildren } from "react-icons/ti";
 
 interface IndexPageProps {}
 
 //eslint-disable-next-line
 const IndexPage: NextPage<IndexPageProps> = (props) => {
+  const router = useRouter();
+  const authContext = useAuth();
   const [colorMode, setColorMode] = useState<string | null | undefined>();
+
+  const onLogoutClick = async () => {
+    if (authContext.auth) {
+      await signOut(authContext.auth);
+
+      router.push("/auth");
+    }
+  };
+
   return (
     <>
       <Box as="section" minH="md" w="5xl" m="auto">
@@ -32,9 +46,9 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
           <Container py="4" maxW="none" w="full">
             <HStack justify="space-between" w="full">
               <HStack direction="column" spacing={2} w="300px">
-                <PiChats fontSize="36px" />
+                <TiFlowChildren fontSize="36px" />
                 <Text fontSize="md" fontWeight="bold">
-                  AI Generator
+                  Start Flow
                 </Text>
               </HStack>
               <Stack direction="row" spacing={2} align="center">
@@ -102,6 +116,7 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
                 placeholder="Describe your website that you'd like to build?  Be as detailed as possible."
               />
               <Button colorScheme="blue">Generate</Button>
+              <Button onClick={() => onLogoutClick()}>Log Out</Button>
             </Stack>
           </Container>
         </Box>
